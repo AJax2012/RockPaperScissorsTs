@@ -1,12 +1,14 @@
 import OptionType from "./OptionsEnum";
+import * as _ from "lodash/core";
 
 type OptionIncrementor = {
   option: OptionType;
   counter: number;
 }
 
-const getHighestOptionIncrementorCounter = (counters: OptionIncrementor[]) => {
-  return Math.max(...counters.map(c => c.counter));
+const getTwoHighestIncrementors = (counters: OptionIncrementor[]): OptionIncrementor[] => {
+  const orderedIncrementors = _.sortBy(counters, ["counter"]);
+  return [orderedIncrementors[0], orderedIncrementors[1]];
 }
 
 const isSmallDifference = (highest: number, nextHighest: number): boolean => {
@@ -48,19 +50,17 @@ class PlayerTracker {
   };
 
   getMostLikelyPlayerSelection(): OptionType | undefined {
-    const allCounters = [this.rockCounter, this.paperCounter, this.scissorsCounter];
-    const highestNumber = getHighestOptionIncrementorCounter(allCounters);
+    const highestIncrementors = getTwoHighestIncrementors([
+      this.rockCounter,
+      this.paperCounter,
+      this.scissorsCounter
+    ]);
 
-    const nextHighestNumber = getHighestOptionIncrementorCounter(
-      allCounters.filter(x => x.counter != highestNumber));
-    
-    const highestCounters = allCounters.filter(c => c.counter === highestNumber);
-
-    if (highestCounters.length > 1 || isSmallDifference(highestNumber, nextHighestNumber)) {
+    if (isSmallDifference(highestIncrementors[0].counter, highestIncrementors[1].counter)) {
       return undefined;
     }
 
-    return highestCounters[0].option;
+    return highestIncrementors[0].option;
   };
 }
 

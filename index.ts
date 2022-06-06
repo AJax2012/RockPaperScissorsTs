@@ -1,6 +1,6 @@
 import { stdin as input, stdout as output } from "node:process";
 import readline from "readline-promise";
-import PlayerTracker from "./OptionTracker";
+import PlayerTracker from "./PlayerTracker";
 import OptionType from "./OptionsEnum";
 import ResultTracker from "./ResultTracker";
 import { getComputerChoice } from "./ComputerUtils";
