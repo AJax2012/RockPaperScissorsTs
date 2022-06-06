@@ -7,8 +7,8 @@ type OptionIncrementor = {
 }
 
 const getTwoHighestIncrementors = (counters: OptionIncrementor[]): OptionIncrementor[] => {
-  const orderedIncrementors = _.sortBy(counters, ["counter"]);
-  return [orderedIncrementors[0], orderedIncrementors[1]];
+  const orderedIncrementors = _.sortBy(counters, "counter");
+  return [orderedIncrementors[2], orderedIncrementors[1]];
 }
 
 const isSmallDifference = (highest: number, nextHighest: number): boolean => {
