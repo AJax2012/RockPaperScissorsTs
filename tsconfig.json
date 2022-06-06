@@ -1,0 +1,10 @@
+{
+  "ts-node": {
+    "compilerOptions": {
+      "target": "es6",
+      "module": "commonjs",
+      "outDir": "build",
+      "sourceMap": true
+    }
+  },
+}

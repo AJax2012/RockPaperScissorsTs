@@ -1,0 +1,27 @@
+{
+  "name": "rockpaperscissorsts",
+  "version": "1.0.0",
+  "description": "Sample RockPaperScissors game in TS",
+  "main": "index.js",
+  "keywords": [
+    "rock",
+    "paper",
+    "scissors"
+  ],
+  "author": "adam gardner",
+  "license": "ISC",
+  "scripts": {
+    "build": "rimraf ./build && tsc",
+    "dev": "nodemon",
+    "start": "npm run build && node build/index.js"
+  },
+  "dependencies": {
+    "readline-promise": "^1.0.5",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.3"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.40"
+  }
+}
