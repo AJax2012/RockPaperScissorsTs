@@ -11,9 +11,7 @@
   "author": "adam gardner",
   "license": "ISC",
   "scripts": {
-    "build": "rimraf ./build && tsc",
-    "dev": "nodemon",
-    "start": "npm run build && node build/index.js"
+    "start": "npx ts-node index.ts"
   },
   "dependencies": {
     "lodash": "^4.17.21",
